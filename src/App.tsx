@@ -155,7 +155,7 @@ function App() {
             </h2>
             <div className="roles-container">
               <p className="hero-roles">
-                ⭐ AI/ML Enthusiast &#8226; Web Developer &#8226; Software Engineer
+                ⭐ AI/ML Enthusiast &#8226; Web Developer &#8226; Data Enthusiast &#8226; Tech Blogger ⭐
               </p>
             </div>
 
