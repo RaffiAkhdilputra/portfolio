@@ -146,7 +146,7 @@ function App() {
       <main>
         {/* Hero Section */}
         <section id="profile" className="hero-section">
-          <div className="text-center px-6 animate-fade-in">
+          <div className="hero-wraper animate-fade-in">
             <h1 className="hero-subtitle">
               MUHAMMAD
             </h1>
@@ -190,9 +190,9 @@ function App() {
               </a>
             </div>
 
-            <div className="hero-description-container max-w-3xl mx-auto">
+            <div className="hero-description-container">
               <p className="text-lg text-center">Areas of Expertise</p>
-              <Table className="max-w-[55rem] pb-[2rem] px-[1rem] mx-auto">
+              <Table className="skills-table">
                 <TableHeader className="table-header">
                   <TableRow>
                     <TableHead className="text-center p-[1rem]">AI/ML</TableHead>
