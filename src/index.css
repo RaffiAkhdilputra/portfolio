@@ -184,7 +184,7 @@
 .hero-section {
   width: 100%;
   min-height: 100vh;
-  padding-top: 10rem;
+  padding-top: 8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -210,43 +210,25 @@
   color: hsl(var(--foreground));
   letter-spacing: -0.03em;
   text-shadow: 0px 10px 30px #000;
+  text-align: center;
 }
 
 .hero-subtitle {
-  width: auto;
+  width: 100%;
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   color: hsl(var(--muted-foreground));
   text-shadow: 0px 10px 30px #000;
-  margin: 0 auto; 
-}
-
-/* Breakpoints - merged for efficiency */
-@media (min-width: 300px) {
-  .hero-title,
-  .hero-subtitle,
-  .hero-roles,
-  .hero-social-links {
-    text-align: start;
-    width: 50%;
-    justify-content: flex-start;
-    margin: 0 1rem;
-  }
-}
-
-.hero-roles {
-  width: auto;
-  font-weight: 500;
-  margin-top: 0.5rem;
+  margin: 0 auto;
   text-align: center;
 }
 
-@media (min-width: 300px) {
-  .hero-roles {
-    width: auto;
-    text-align: start;
-  }
+.hero-roles {
+  width: 100%;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 .hero-social-links {
@@ -254,26 +236,6 @@
   gap: 1rem;
   margin-top: 1.5rem;
   justify-content: center;
-}
-
-@media (min-width: 300px) {
-  .hero-social-links {
-    width: auto;
-    justify-content: flex-start;
-  }
-}
-
-@media (min-width: 480px) {
-  .hero-social-links {
-    width: auto;
-    justify-content: flex-start;
-  }
-}
-
-@media (min-width: 640px) {
-  .hero-social-links {
-    width: auto;
-  }
 }
 
 .hero-social-link {
@@ -302,13 +264,14 @@
   color: hsl(var(--gold));
 }
 
-@media (min-width: 7) {
-  
-}
-
 .hero-description-container {
   padding-top: 2rem;
   padding-bottom: 10rem;
+}
+
+.skills-table {
+  margin: auto;
+  width: 20rem;
 }
 
 .table-header {
@@ -320,6 +283,7 @@
 }
 
 .table-cell-highlighted {
+  text-align: center;
   border-color: hsl(var(--muted-foreground));
   color: hsl(var(--gold));
   background-color: hsl(var(--primary) / 0.1);
@@ -393,8 +357,7 @@
 
 @media (min-width: 768px) {
   .portfolio-carousel-section {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding: 0;
   }
 }
 
@@ -433,41 +396,12 @@
   padding: 0;
   width: 100%;
   height: auto;
-  /* min-height: 500px; */
   max-height: calc(100vh - 10rem);
   position: relative;
   border-radius: 0.5rem;
-  /* overflow: hidden; */
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   background: hsl(var(--navy-dark));
   border: 2px solid hsl(var(--border));
-}
-
-@media (min-width: 300px) {
-  .carousel-card {
-    height: 550px;
-    min-height: 550px;
-    ::-webkit-scrollbar {
-      width: 3px;
-    }
-    ::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .carousel-card {
-    height: 650px;
-    min-height: 650px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .carousel-card {
-    height: 700px;
-    min-height: 700px;
-  }
 }
 
 .carousel-card a,
@@ -595,7 +529,11 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 0 0 0.75rem 0.75rem;
-  overflow-y: auto;
+  overflow: hidden;
+}
+
+.carousel-scroll-wraper {
+  overflow: auto;
 }
 
 @media (min-width: 300px) {
@@ -1068,7 +1006,7 @@
 
 @media (min-width: 480px) {
   .footer-link {
-    padding: 1.1rem 1.35rem;
+    padding: 1.1rem 1.38rem;
     gap: 1.1rem;
   }
 }
@@ -1145,21 +1083,43 @@
   top: 1.5rem;
   right: 1.5rem;
   z-index: 100;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  border: none;
   cursor: pointer;
-  transition: all 0.3s;
+
   color: hsl(var(--foreground));
+
+  /* Glass Effect */
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.28);
+
+  transition: 
+    background 0.3s ease,
+    border-color 0.3s ease,
+    backdrop-filter 0.3s ease,
+    -webkit-backdrop-filter 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .menu-toggle:hover {
-  color: hsl(var(--primary));
+  background: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
 }
+
 
 /* Sidebar */
 .sidebar {
@@ -1175,38 +1135,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-@media (min-width: 300px) {
-  .sidebar {
-    width: 80vw;
-  }
-}
-
-@media (min-width: 420px) {
-  .sidebar {
-    width: 80vw;
-    right: -90%;
-  }
-}
-
-@media (min-width: 640px) {
-  .sidebar {
-    width: 25vw;
-  }
-  
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 60vw;
-  }
-}
-
-@media (max-width: 1024px) {
-  .sidebar {
-    width: 40vw;
-  }
 }
 
 .sidebar.open {
@@ -1291,11 +1219,44 @@
   animation: slideInRight 0.6s ease-out forwards;
 }
 
+/* Small phone */
 @media (min-width: 300px) {
+  .menu-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 4px;
+  }
+
+  .sidebar {
+    width: 100vw;
+  }
+
+  .sidebar.open {
+    right: 0;
+  }
+
+  .sidebar-link {
+    text-align: center;
+  }
+
+  .hero-title,
+  .hero-subtitle,
+  .hero-roles,
+  .hero-social-links {
+    text-align: start;
+    width: 100%;
+    justify-content: flex-start;
+    margin: 0 1rem;
+  }
+
+  .hero-social-links {
+    margin-top: 1rem;
+  }
+
   .hero-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    width: auto;
+    width: 100%;
   }
   
   .hero-subtitle {
@@ -1345,14 +1306,42 @@
     font-size: 2rem;
   }
 
-  .table-cell-highlighted {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    text-align: center;
+  .carousel-container {
+    width: 90%;
+    height: 38rem;
+    padding: 0;
+  }
+
+  .carousel-card {
+    max-height: 38rem;
+    height: 38rem;
+
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+  }
+
+  .carousel-content-wrapper {
+    height: 38rem;
   }
   
   .carousel-title {
     font-size: 1.25rem;
+  }
+
+  .carousel-text-panel {
+    padding: 1.5rem 1rem;
+  }
+
+  .carousel-scroll-wraper {
+    padding-right: 1px;
+  }
+
+  .carousel-nav-inline {
+    margin: 0;
   }
   
   .cta-title {
@@ -1360,17 +1349,85 @@
   }
 }
 
-@media (min-width: 480px) {
+/* Large Mobile */
+@media (min-width: 420px) {
+  .hero-section {
+    padding-top: 5rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .hero-roles {
+    text-align: center;
+    margin: 0;
+  }
+
+  .hero-social-links {
+    justify-content: center;
+    margin: 1rem;
+  }
+
+  .hero-description-container {
+    width: auto;
+    padding: 1rem 2rem;
+  }
+  
+  .table-body td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .carousel-container {
+    width: 85%;
+    
+  }
+}
+
+/* Small Tablet / Large Landscape Mobile */
+@media (min-width: 680px) {
+  .sidebar {
+    width: 40vw;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
   .hero-title {
     font-size: 2rem;
   }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-  }
-  
   .hero-roles {
     font-size: 0.9rem;
+  }
+  .table-header th {
+    font-size: 1.125rem;
+  }
+
+  .carousel-container {
+    width: 80%;
+    height: 34rem;
+  }
+  .carousel-card, 
+  .carousel-content-wrapper {
+    max-height: 34rem;
+    height: 34rem;
+  }
+}
+
+/* Standard Tablet (iPad Portrait) */
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
   }
 
   .hero-social-link {
@@ -1379,161 +1436,93 @@
     font-size: 1.5rem;
   }
 
-  .table-header th {
-    padding: 0.75rem;
-    font-size: 1.125rem;
-  }
-
   .table-body td {
-    padding: 0.75rem;
+    width: 70%;
     font-size: 1rem;
+    padding: 1rem;
   }
 
-  .table-body td .skills-list {
-    gap: 1.25rem;
-  }
-
-  .table-cell-highlighted {
-    font-size: 0.85rem;
-    padding: 0.35rem 0.75rem;
+  .table-body td .iconify {
+    font-size: 2.5rem;
   }
 
   .carousel-container {
-    padding: 0;
+    width: 90%;
+    height: 32rem;
+  }
+  .carousel-card,
+  .carousel-content-wrapper {
+    max-height: 32rem;
+    height: 32rem;
   }
 
   .carousel-title {
     font-size: 1.5rem;
-  }
-
-  .cta-title {
-    font-size: 1.75rem;
-  }
-}
-
-@media (min-width: 640px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.375rem;
-  }
-  
-  .hero-roles {
-    font-size: 1rem;
-  }
-
-  .hero-social-link {
-    width: 3rem;
-    height: 3rem;
-    font-size: 2rem;
-  }
-
-  .table-header th {
-    padding: 1rem;
-    font-size: 1.25rem;
-  }
-
-  .table-body td {
-    padding: 1rem;
-    font-size: 1.125rem;
-  }
-
-  .table-body td .skills-list {
-    gap: 1.5rem;
-  }
-
-  .table-cell-highlighted {
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .carousel-title {
-    font-size: 1.75rem;
-  }
-
-  .cta-title {
-    font-size: 2.25rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-  }
-  
-  .hero-roles {
-    font-size: 1.125rem;
-  }
-
-  .table-header th {
-    padding: 1.25rem;
-    font-size: 1.375rem;
-  }
-
-  .table-body td {
-    padding: 1.25rem;
-    font-size: 1.25rem;
-  }
-
-  .table-body td .skills-list {
-    gap: 1.75rem;
-  }
-
-  .table-cell-highlighted {
-    font-size: 1rem;
-    padding: 0.6rem 1.25rem;
   }
 }
 
 @media (min-width: 1024px) {
+  .sidebar {
+    width: 40vw;
+  }
+  
   .hero-title {
-    font-size: 3.75rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.75rem;
-  }
-  
-  .hero-roles {
-    font-size: 1.25rem;
-  }
+    font-size: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  } 
 
-  .table-header th {
-    padding: 1.5rem;
-    font-size: 1.5rem;
-  }
-
-  .table-body td {
-    padding: 1.5rem;
-    font-size: 1.375rem;
-  }
-
-  .table-body td .skills-list {
-    gap: 2rem;
-  }
-
-  .table-cell-highlighted {
-    font-size: 1.1rem;
-    padding: 0.75rem 1.5rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .hero-title {
-    font-size: 4.5rem;
-  }
-  
   .hero-subtitle {
     font-size: 2rem;
   }
   
   .hero-roles {
-    font-size: 1.375rem;
+    font-size: 1rem;
+  }
+
+  .hero-social-links {
+    margin-top: 2rem;
+  }
+
+  .hero-social-link {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .hero-social-link .iconify {
+    font-size: 2rem;
+  }
+  
+  .hero-description-container {
+    justify-content: center;
+    padding: 2rem 3rem;
+  }
+  
+  .table-header th {
+    padding: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .portfolio-carousel-section {
+    padding: 0;
+  }
+  
+  .carousel-container {
+    width: 70%;
+    height: 30rem;
+  }
+  
+  .carousel-card,
+  .carousel-content-wrapper {
+    max-height: 30rem;
+    height: 30rem;
+  }
+  
+  .carousel-text-panel {
+    padding: 2rem;
+  }
+  
+  .cta-title {
+    font-size: 1.75rem;
   }
 }

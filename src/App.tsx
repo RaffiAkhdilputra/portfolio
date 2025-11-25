@@ -117,7 +117,7 @@ function App() {
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >
-        {menuOpen ? <X size={50} /> : <Menu size={50} />}
+        {menuOpen ? <X size={30} /> : <Menu size={30} />}
       </button>
 
       {/* Sidebar Menu */}
@@ -355,6 +355,10 @@ function App() {
                     <TableCell className="table-cell-highlighted">
                       Prefered
                     </TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -386,50 +390,52 @@ function App() {
                 </div>
 
                 <div className="carousel-text-panel">
-                  <div className="carousel-text-content">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className={`${currentProject.status === 'IN PROGRESS'
-                        ? 'in-progress'
-                        : 'finished'
-                        }`}>
-                        {currentProject.status}
-                      </span>
-                    </div>
+                  <div className="carousel-scroll-wraper">
+                    <div className="carousel-text-content">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className={`${currentProject.status === 'IN PROGRESS'
+                          ? 'in-progress'
+                          : 'finished'
+                          }`}>
+                          {currentProject.status}
+                        </span>
+                      </div>
 
-                    <div>
-                      <h3 className="carousel-title">{currentProject.title}</h3>
-                      <p className="carousel-description">{currentProject.description}</p>
-                    </div>
+                      <div>
+                        <h3 className="carousel-title">{currentProject.title}</h3>
+                        <p className="carousel-description">{currentProject.description}</p>
+                      </div>
 
-                    <div className="carousel-action-buttons">
-                      {currentProject.demo !== 'unavailable' ? (
+                      <div className="carousel-action-buttons">
+                        {currentProject.demo !== 'unavailable' ? (
+                          <a
+                            href={currentProject.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="carousel-action-button"
+                          >
+                            <ExternalLink size={16} />
+                            <span>View Demo</span>
+                          </a>
+                        ) : (
+                          <button
+                            disabled
+                            className="carousel-action-button"
+                          >
+                            <ExternalLink size={16} />
+                            <span>Demo Unavailable</span>
+                          </button>
+                        )}
                         <a
-                          href={currentProject.demo}
+                          href={currentProject.repo}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="carousel-action-button"
                         >
-                          <ExternalLink size={16} />
-                          <span>View Demo</span>
+                          <Icon icon="mdi:github" />
+                          <span>Repository</span>
                         </a>
-                      ) : (
-                        <button
-                          disabled
-                          className="carousel-action-button"
-                        >
-                          <ExternalLink size={16} />
-                          <span>Demo Unavailable</span>
-                        </button>
-                      )}
-                      <a
-                        href={currentProject.repo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="carousel-action-button"
-                      >
-                        <Icon icon="mdi:github" />
-                        <span>Repository</span>
-                      </a>
+                      </div>
                     </div>
                   </div>
 
