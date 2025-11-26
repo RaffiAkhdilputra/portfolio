@@ -314,6 +314,12 @@ function App() {
                           </TooltipTrigger>
                           <TooltipContent className="tooltip-content">Supabase</TooltipContent>
                         </Tooltip>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Icon className="skill-badge" icon="logos:qdrant-icon" />
+                          </TooltipTrigger>
+                          <TooltipContent className="tooltip-content">Qdrant</TooltipContent>
+                        </Tooltip>
                       </div>
                     </TableCell>
                     <TableCell>
