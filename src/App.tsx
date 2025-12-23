@@ -15,14 +15,26 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   // PROJECTS
+
+  // ON PROGRESS STATUS
+  // {
+  //     title: "",
+  //     description: "",
+  //     img: "",
+  //     status: "ON PROGRESS",
+  //     demo: "",
+  //     repo: "" 
+  // }
+
+
   const portfolioItems = [
     {
-      title: "Journalist Work Attribution & Cross-Media Tracking System",
-      description: "Developed an LLM-driven attribution system that maps and verifies journalists work across media platforms using LangChain pipelines and Vector Databases.",
-      img: "",
-      status: "IN PROGRESS",
-      demo: "unavailable",
-      repo: "https://drive.google.com/drive/folders/1ZbedVSK1nKvT7cFneIedeU7Afo9LoW5b?usp=drive_link"
+      title: "Resume/CV AI Analyzer",
+      description: "An AI-powered web application for analyzing resumes/CVs using a practical machine learning approach, combining classical NLP models with modern LLM-based reasoning to provide meaningful, explainable feedback. ",
+      img: "/img/resumecv-ai-analyzer.png",
+      status: "FINISHED",
+      demo: "https://resumecv-ai-analyzer.streamlit.app/",
+      repo: "https://github.com/RaffiAkhdilputra/resume-cv-analyzer"
     },
     {
       title: "Emotion Recognition using LSTM",
